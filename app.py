@@ -1,4 +1,4 @@
-"""Discord Quest 遊戲偵測模擬器：讓 Discord 以為正在玩某款遊戲。"""
+"""Discord Game Detector：讓 Discord 以為正在玩某款遊戲。"""
 import json
 import shutil
 import subprocess
@@ -41,7 +41,7 @@ class App:
         self.shown = []
         self.proc = None
 
-        root.title("Discord Quest 遊戲模擬器")
+        root.title("Discord Game Detector")
         root.geometry("520x420")
 
         top = tk.Frame(root)
@@ -94,7 +94,7 @@ class App:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(DUMMY_EXE, target)
         self.proc = subprocess.Popen([str(target), name], cwd=target.parent)
-        self.status.config(text=f"執行中：{name}（Quest 通常要 15 分鐘）")
+        self.status.config(text=f"執行中：{name}")
 
     def stop(self):
         if self.proc and self.proc.poll() is None:
